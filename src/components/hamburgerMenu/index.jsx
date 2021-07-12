@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import { MenuToggle } from './menuToggle';
 
@@ -30,12 +30,18 @@ const MenuContainer = styled.div`
 `;
 
 function HamburgerMenu(props){
+    const [isOpen, setIsOpen] = useState(false)
+
+    const toggleMenu = () => {
+        setIsOpen(!isOpen);
+    }
+
     return(
         <HamburgerMenuContainer>
             <HamburgerIcon>
-                <MenuToggle toggle={() => {}} isOpen={false}/>
+                <MenuToggle toggle={toggleMenu} isOpen={isOpen}/>
             </HamburgerIcon>
-            <MenuContainer>Menu</MenuContainer>
+            {/* <MenuContainer>Menu</MenuContainer> */}
         </HamburgerMenuContainer>
     )
 }
